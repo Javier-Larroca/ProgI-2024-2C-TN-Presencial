@@ -61,7 +61,7 @@ int main()
         while(numProvinciaAnt==numProvincia)
         {
             //Punto A
-            switch (codTarj)
+            switch (toupper(codTarj))
             {
             case 'M':
                 cantMaster++;
