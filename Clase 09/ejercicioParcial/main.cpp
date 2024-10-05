@@ -2,20 +2,21 @@
 using namespace std;
 
 /*
-Se requiere procesar los consumos de tarjetas de crédito emitidas por distintos bancos. De cada registro se tiene:
+Se requiere procesar los consumos de tarjetas de crédito emitidas por distintos bancos.
+De cada registro se tiene:
 
-Código de tarjeta ("M" MasterCard. - "V" Visa. - "A" American Express).
-﻿﻿Importe de la compra.
-﻿﻿Cantidad de cuotas (1, 3, 6, 12).
-﻿﻿Número de Provincia (1 a 24).
-﻿﻿Mes (1 a 12).
+    - Código de tarjeta ("M" MasterCard. - "V" Visa. - "A" American Express).
+    ﻿﻿- Importe de la compra.
+    ﻿﻿- Cantidad de cuotas (1, 3, 6, 12).
+    ﻿﻿- Número de Provincia (1 a 24).
+    ﻿﻿- Mes (1 a 12).
 
 Los registros se encuentran agrupados por provincia y el fin del lote se indica con provincia cero.
 Se pide determinar e informar:
 
-﻿﻿﻿A - El porcentaje de compras realizadas por cada marca de tarjeta.
-﻿﻿﻿B - La cantidad de compras de la tarjeta Visa el mes de enero en cada provincia.
-﻿﻿﻿C - El número de provincia en la que se registró el consumo más caro en un pago
+    ﻿﻿﻿A - El porcentaje de compras realizadas por cada marca de tarjeta.
+    ﻿﻿﻿B - La cantidad de compras de la tarjeta Visa el mes de enero en cada provincia.
+    ﻿﻿﻿C - El número de provincia en la que se registró el consumo más caro en un (1) pago
 */
 
 int main()
@@ -58,6 +59,7 @@ int main()
 
         //Punto B
         cantVisaEnero = 0;
+
         while(numProvinciaAnt==numProvincia)
         {
             //Punto A
@@ -112,9 +114,9 @@ int main()
 
     //Punto A
     cantTotalCompras = cantMaster + cantVisa + cantAmerican;
-    porcMaster = cantMaster * 100 / cantTotalCompras;
-    porcVisa = cantVisa * 100 / cantTotalCompras;
-    porcAmerican = cantAmerican * 100 / cantTotalCompras;
+    porcMaster = cantMaster * 100.f / cantTotalCompras;
+    porcVisa = cantVisa * 100.f / cantTotalCompras;
+    porcAmerican = cantAmerican * 100.f / cantTotalCompras;
     cout<<"Porcentaje de ventas - Master : %"<<porcMaster<<endl;
     cout<<"Porcentaje de ventas - Visa : %"<<porcVisa<<endl;
     cout<<"Porcentaje de ventas - American : %"<<porcAmerican<<endl;
