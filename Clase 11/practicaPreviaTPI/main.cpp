@@ -3,27 +3,27 @@
 #include <ctime>
 using namespace std;
 
-int encontrarElNumero();
-void mostrarPuntajes(int puntajes[]);
+int encontrarElNumero(); //Función que se ocupara de que el usuario acierte el numero, devolviendonos la cantidad de intentos.
+void mostrarPuntajes(int puntajes[]); //Función que nos indicara el puntaje de cada jugador.
 
 int main()
 {
-    setlocale(LC_ALL, "spanish");
-    srand (time(NULL));
+    setlocale(LC_ALL, "spanish"); //Seteo el lenguaje de la consola.
+    srand (time(NULL)); //Planto la semilla del random
 
     int intentosPorjugador[2];
 
     for(int x=0; x<2; x++)
     {
-        system("cls");
+        system("cls"); // Limpio la pantalla
 
         cout<<"------- TURNO JUGADOR N° "<<x+1<<" -------"<<endl<<endl;
         intentosPorjugador[x] = encontrarElNumero();
 
-        system("pause");
+        system("pause"); // Pauso el juego
     }
 
-    system("cls");
+    system("cls"); // Limpio la pantalla
     mostrarPuntajes(intentosPorjugador);
     if(intentosPorjugador[0]<intentosPorjugador[1])
     {
@@ -40,7 +40,7 @@ int main()
 int encontrarElNumero()
 {
     int numero;
-    int numeroEsperado = rand() % 1000 +1;
+    int numeroEsperado = rand() % 1000 +1; // Asigno un numero aleatorio entre 1000 y 1.
     int intentos = 1;
 
     //cout<<" -- "<<numeroEsperado << " Este es el numero esperado. --"<<endl;
@@ -63,6 +63,7 @@ int encontrarElNumero()
     }
     cout<<endl<<"  ¡¡¡¡ Acertaste felicitaciones !!!!"<<endl;
     cout<<"    --- Cantidad de intentos: "<<intentos<<" --- "<<endl<<endl;
+
     return intentos;
 }
 
