@@ -4,34 +4,43 @@
 using namespace std;
 
 int encontrarElNumero(); //Función que se ocupara de que el usuario acierte el numero, devolviendonos la cantidad de intentos.
-void mostrarPuntajes(int puntajes[]); //Función que nos indicara el puntaje de cada jugador.
+void mostrarIntentos(int intentos[]); //Función que nos indicara el puntaje de cada jugador.
 
 int main()
 {
     setlocale(LC_ALL, "spanish"); //Seteo el lenguaje de la consola.
     srand (time(NULL)); //Planto la semilla del random
 
-    int intentosPorjugador[2];
+    int intentosPorjugador[2]; //Vector donde se guardaran la cantidad de intentos de cada jugador.
 
     for(int x=0; x<2; x++)
     {
         system("cls"); // Limpio la pantalla
 
         cout<<"------- TURNO JUGADOR N° "<<x+1<<" -------"<<endl<<endl;
-        intentosPorjugador[x] = encontrarElNumero();
+        intentosPorjugador[x] = encontrarElNumero(); //Llamo a la función para que el jugador comience el juego.
 
         system("pause"); // Pauso el juego
     }
 
     system("cls"); // Limpio la pantalla
-    mostrarPuntajes(intentosPorjugador);
-    if(intentosPorjugador[0]<intentosPorjugador[1])
+
+    mostrarIntentos(intentosPorjugador); //Llamo a la función de mostrar intentos para que nos muestre los intentos de cada jugador.
+
+    if(intentosPorjugador[0]==intentosPorjugador[1]) //Evaluo si hubo un empate
     {
-        cout<<endl<<"   ¡¡ El jugador 1 fue el ganador !!"<<endl;
+        cout<<endl<<"   ¡¡ Empate, ganaron o perdieron ambos !!"<<endl;
     }
     else
     {
-        cout<<endl<<"   ¡¡ El jugador 2 fue el ganador !!"<<endl;
+        if(intentosPorjugador[0]<intentosPorjugador[1]) //Evaluo cual de los dos jugadores fue el ganador.
+        {
+            cout<<endl<<"   ¡¡ El jugador 1 fue el ganador !!"<<endl;
+        }
+        else
+        {
+            cout<<endl<<"   ¡¡ El jugador 2 fue el ganador !!"<<endl;
+        }
     }
 
     return 0;
@@ -47,9 +56,9 @@ int encontrarElNumero()
     cout<<"Elija un numero: ";
     cin>>numero;
 
-    while(numero != numeroEsperado)
+    while(numero != numeroEsperado) //Mientras el numero que ingrese el usuario sea distinto al numero esperado seguira iterando.
     {
-        if ( numero > numeroEsperado)
+        if (numero > numeroEsperado)
         {
             cout<<"¡Te pasaste, un poco menos!"<<endl<<endl;
         }
@@ -59,20 +68,21 @@ int encontrarElNumero()
         }
         cout<<"Elija un numero: ";
         cin>>numero;
-        intentos ++;
+        intentos ++; //Sumo un nuevo intento por cada vez que ingresa un numero.
     }
-    cout<<endl<<"  ¡¡¡¡ Acertaste felicitaciones !!!!"<<endl;
+
+    cout<<endl<<"  ¡¡¡¡ Acertaste felicitaciones !!!!"<<endl; //Si salio del ciclo while es porque acerto el numero.
     cout<<"    --- Cantidad de intentos: "<<intentos<<" --- "<<endl<<endl;
 
     return intentos;
 }
 
-void mostrarPuntajes(int puntajes[])
+void mostrarIntentos(int intentos[])
 {
     cout<<"-----------------------------------"<<endl;
-    for (int x=0;x<2 ;x++ )
+    for (int x=0; x<2 ; x++ )
     {
-        cout<<"      Intentos jugador N° "<<x+1<<": "<<puntajes[x]<<endl;
+        cout<<"      Intentos jugador N° "<<x+1<<": "<<intentos[x]<<endl;
     }
     cout<<"-----------------------------------"<<endl;
 }
