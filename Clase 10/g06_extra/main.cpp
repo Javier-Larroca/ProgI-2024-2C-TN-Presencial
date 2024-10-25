@@ -18,7 +18,6 @@ int main()
     cout << "Suma: " << suma << endl;
     cout << "Producto: " << n2 << endl;
 
-
     return 0;
 }
 
@@ -29,5 +28,4 @@ int sumaProducto(int a, int& b)
     b = a * b;
 
     return suma;
-
 }

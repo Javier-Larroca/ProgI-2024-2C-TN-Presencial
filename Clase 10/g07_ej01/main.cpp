@@ -1,5 +1,7 @@
 /*
  Se requiere un programa que almacene la edad de 5 personas y luego las muestre por pantalla.
+ Edit:
+ Se requiere un programa que almacene la edad de 5 personas y luego muestre por pantalla aquellas edades mayores al promedio.
 */
 
 #include <iostream>
