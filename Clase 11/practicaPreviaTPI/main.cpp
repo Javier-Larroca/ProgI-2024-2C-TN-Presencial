@@ -51,7 +51,7 @@ int encontrarElNumero()
         {
             cout<<"¡Te pasaste, un poco menos!"<<endl<<endl;
         }
-        else if ( numero < numeroEsperado)
+        else
         {
             cout<<"¡Te falta un poco, es mas grande!"<<endl<<endl;
         }
